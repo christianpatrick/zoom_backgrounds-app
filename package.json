@@ -1,10 +1,14 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "zoom_backgrounds-app",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Instantly preview backgrounds with your webcam and download your favorites!",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Christian Helvin <hi@mynameischristian.com>",
   "dependencies": {
+    "@tensorflow-models/body-pix": "^2.0.5",
+    "@tensorflow/tfjs-converter": "^1.7.2",
+    "@tensorflow/tfjs-core": "^1.7.2",
+    "axios": "^0.19.2",
     "gatsby": "^2.20.12",
     "gatsby-image": "^2.3.1",
     "gatsby-plugin-manifest": "^2.3.3",
