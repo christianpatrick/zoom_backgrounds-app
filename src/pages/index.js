@@ -38,15 +38,15 @@ class IndexPage extends Component {
 
         let videoElm = video
             videoElm.srcObject = stream
-            videoElm.onloadedmetadata = () => {
-              if (this.state.customBackground) {
-                // videoElm.width = videoElm.videoWidth
-                // videoElm.height = videoElm.videoHeight
+            // videoElm.onloadedmetadata = () => {
+            //   if (this.state.customBackground) {
+            //     // videoElm.width = videoElm.videoWidth
+            //     // videoElm.height = videoElm.videoHeight
 
-                // canvas.height = videoElm.videoHeight
-                // canvas.width = videoElm.videoWidth
-              }
-            }
+            //     // canvas.height = videoElm.videoHeight
+            //     // canvas.width = videoElm.videoWidth
+            //   }
+            // }
             videoElm.play()
       })
     }
@@ -57,7 +57,7 @@ class IndexPage extends Component {
       headers: {"Authorization": process.env.GATSBY_PEXELS_API_KEY}
     }
 
-    axios.get("https://api.pexels.com/videos/popular?per_page=30&page=1", options).then((res) => {
+    axios.get("https://api.pexels.com/videos/search?query=background&per_page=30&page=1", options).then((res) => {
       this.setState({ mediaList: res.data.videos })
     })
   }
