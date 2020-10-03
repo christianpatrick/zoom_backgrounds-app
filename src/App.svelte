@@ -1,5 +1,6 @@
 <script>
     import SearchBar from "./components/SearchBar.svelte"
+    import CameraPreview from "./components/CameraPreview.svelte"
     export let name
 </script>
 
@@ -17,4 +18,6 @@
     <header>
         <SearchBar />
     </header>
+
+    <CameraPreview />
 </main>
