@@ -4,8 +4,9 @@
     import "@tensorflow/tfjs-backend-webgl"
     import * as bodyPix from "@tensorflow-models/body-pix"
 
+    export let webcamLoaded = false
+
     let bodyPixNet
-    let webcamLoaded = false
     let webcamPermission = false
     let cameraVideo
 
@@ -18,8 +19,6 @@
             })
         } catch (err) {
             webcamLoaded = true
-
-            // getMedia()
         }
 
         if (stream) {
@@ -27,8 +26,6 @@
             webcamPermission = true
 
             let bodyPixNet = await bodyPix.load()
-
-            // getMedia()
 
             let videoElm = cameraVideo
             videoElm.srcObject = stream

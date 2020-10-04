@@ -4,7 +4,7 @@ import commonjs from "@rollup/plugin-commonjs"
 import livereload from "rollup-plugin-livereload"
 import { terser } from "rollup-plugin-terser"
 import replace from "@rollup/plugin-replace"
-import dotenv from 'dotenv'
+import dotenv from "dotenv"
 
 const production = !process.env.ROLLUP_WATCH
 const envVars = dotenv.config()
@@ -66,7 +66,7 @@ export default {
 
         replace({
             process: JSON.stringify({
-                env: envVars.parsed
+                env: envVars.parsed,
             }),
         }),
 
