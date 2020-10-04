@@ -2,12 +2,16 @@
     import SearchBar from "./components/SearchBar.svelte"
     import CameraPreview from "./components/CameraPreview.svelte"
     import MediaList from "./components/MediaList.svelte"
-    export let name
+    import Hero from "./components/Hero.svelte"
+    import Welcome from "./components/Welcome.svelte"
+
+    let searchValue, webcamLoaded
 </script>
 
 <style>
     main {
-        padding: 0 1rem;
+        margin: 1rem auto;
+        width: 840px;
     }
     header {
         padding-top: 2rem;
@@ -15,11 +19,16 @@
     }
 </style>
 
-<main>
-    <header>
-        <SearchBar />
-        <MediaList />
-    </header>
+<header>
+    <SearchBar bind:searchValue />
+    <main>
+        <Hero {searchValue} />
+        {#if webcamLoaded}
+            <MediaList {searchValue} />
+        {:else}
+            <Welcome />
+        {/if}
+    </main>
+</header>
 
-    <CameraPreview />
-</main>
+<CameraPreview bind:webcamLoaded />
