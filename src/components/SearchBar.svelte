@@ -1,3 +1,16 @@
+<script>
+    export let searchValue = ""
+
+    let timer
+
+    const debounce = (value) => {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+            searchValue = value
+        }, 750)
+    }
+</script>
+
 <style>
     div {
         margin: 0 auto;
@@ -29,7 +42,8 @@
     <input
         type="text"
         className="search"
-        placeholder="Find fun, crazy, or useful backgrounds..." />
+        placeholder="Find fun, crazy, or useful backgrounds..."
+        on:keyup={({ target: { value } }) => debounce(value)} />
     <svg
         aria-hidden="true"
         focusable="false"
