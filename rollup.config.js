@@ -3,8 +3,11 @@ import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import livereload from "rollup-plugin-livereload"
 import { terser } from "rollup-plugin-terser"
+import replace from "@rollup/plugin-replace"
+import dotenv from 'dotenv'
 
 const production = !process.env.ROLLUP_WATCH
+const envVars = dotenv.config()
 
 function serve() {
     let server
@@ -60,6 +63,12 @@ export default {
             dedupe: ["svelte"],
         }),
         commonjs(),
+
+        replace({
+            process: JSON.stringify({
+                env: envVars.parsed
+            }),
+        }),
 
         // In dev mode, call `npm run start` once
         // the bundle has been generated

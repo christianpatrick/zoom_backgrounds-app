@@ -1,6 +1,7 @@
 <script>
     import SearchBar from "./components/SearchBar.svelte"
     import CameraPreview from "./components/CameraPreview.svelte"
+    import MediaList from "./components/MediaList.svelte"
     export let name
 </script>
 
@@ -17,6 +18,7 @@
 <main>
     <header>
         <SearchBar />
+        <MediaList />
     </header>
 
     <CameraPreview />
