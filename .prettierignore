@@ -1,5 +1,4 @@
 .cache
-old
 public/build
 package.json
 yarn.lock
