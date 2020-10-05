@@ -25,6 +25,7 @@
     "@tensorflow/tfjs-backend-webgl": "^2.4.0",
     "@tensorflow/tfjs-converter": "^2.4.0",
     "@tensorflow/tfjs-core": "^2.4.0",
+    "file-saver": "^2.0.2",
     "sirv-cli": "^1.0.0"
   }
 }
