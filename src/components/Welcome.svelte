@@ -3,9 +3,9 @@
         margin: 1rem auto;
         border-radius: 1rem;
         padding: 1rem 2rem;
-        border: 0.5rem solid #FFFFFF;
-        background: linear-gradient(#96AEFF, #6396FF);
-        box-shadow: 0 0 3rem 0 #EAEAEA;
+        border: 0.5rem solid #ffffff;
+        background: linear-gradient(#96aeff, #6396ff);
+        box-shadow: 0 0 3rem 0 #eaeaea;
         text-align: center;
     }
 
@@ -17,11 +17,11 @@
         float: right;
         height: 6rem;
         margin: 1rem 0rem 2rem 2rem;
-        color: #FFFFFF;
+        color: #ffffff;
     }
 
     p {
-        color: #FFFFFF;
+        color: #ffffff;
         padding: 0 1.5rem 0 2.5rem;
         text-align: left;
         font-size: 1rem;
@@ -49,7 +49,7 @@
         I don't do anything with your data. The site simply runs your webcam
         feed  through a machine learning platform: TensorFlow to separate you
         from your  background. If you'd rather not share your webcam, simply
-        disable your webcam. You won't be able to preview backgrounds with 
-        your webcam, but you can still download them :)
+        disable your webcam. You won't be able to preview backgrounds with your
+        webcam, but you can still download them :)
     </p>
 </div>

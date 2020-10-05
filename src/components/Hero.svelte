@@ -3,12 +3,12 @@
 </script>
 
 <style>
-	h1 {
-		margin-top: 1.5rem;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		overflow: hidden;
-	}
+    h1 {
+        margin-top: 1.5rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
 
     p {
         line-height: 1.75;
@@ -28,8 +28,7 @@
 {:else}
     <h1>Zoom Backgrounds</h1>
     <p>
-        Gone are the days of guessing if a background will look good or
-        not. 
+        Gone are the days of guessing if a background will look good or not. 
         <br />
         Instantly preview backgrounds with your webcam and download your
         favorites!

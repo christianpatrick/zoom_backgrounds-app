@@ -49,8 +49,14 @@
                 let greenScreenFrame
 
                 async function greenScreen() {
-                    let personSegmentation = await bodyPixNet.segmentPerson(cameraVideo)
-                    drawGreenScreenEffect(cameraCanvas, cameraVideo, personSegmentation)
+                    let personSegmentation = await bodyPixNet.segmentPerson(
+                        cameraVideo
+                    )
+                    drawGreenScreenEffect(
+                        cameraCanvas,
+                        cameraVideo,
+                        personSegmentation
+                    )
 
                     greenScreenFrame = requestAnimationFrame(greenScreen)
                 }
@@ -72,7 +78,7 @@
         bottom: 50px;
         left: 50px;
         border-radius: 1rem;
-        border: 0.5rem solid #FFFFFF;
+        border: 0.5rem solid #ffffff;
         box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.2);
         object-fit: cover;
     }
@@ -83,8 +89,8 @@
         position: fixed;
         bottom: 50px;
         left: 50px;
-        border-radius: 1.0rem;
-        border: 0.5rem solid rgba(0,0,0,0);
+        border-radius: 1rem;
+        border: 0.5rem solid rgba(0, 0, 0, 0);
         z-index: 1;
     }
 </style>
@@ -93,6 +99,4 @@
     <canvas bind:this={cameraCanvas} />
     <video muted bind:this={cameraVideo} />
 {/if}
-{#if mediaUrl}
-    <video muted loop bind:this={mainVideo} />
-{/if}
+{#if mediaUrl}<video muted loop bind:this={mainVideo} />{/if}

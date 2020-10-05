@@ -44,7 +44,7 @@
         type="text"
         className="search"
         placeholder="Find fun, crazy, or useful backgrounds..."
-        disabled="{!webcamLoaded}"
+        disabled={!webcamLoaded}
         on:keyup={({ target: { value } }) => debounce(value)} />
     <svg
         aria-hidden="true"

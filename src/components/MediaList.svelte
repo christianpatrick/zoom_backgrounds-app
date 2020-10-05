@@ -11,7 +11,7 @@
 
     $: {
         getMedia()
-        prevSearchValue = searchValue;
+        prevSearchValue = searchValue
     }
 
     onMount(async () => {
@@ -25,7 +25,9 @@
             }
 
             await fetch(
-                `https://api.pexels.com/videos/search?query=${searchValue ? searchValue : "background"}&per_page=30&page=1`,
+                `https://api.pexels.com/videos/search?query=${
+                    searchValue ? searchValue : "background"
+                }&per_page=30&page=1`,
                 options
             )
                 .then((response) => response.json())
@@ -68,12 +70,12 @@
     }
 
     img:hover {
-      box-shadow: 0 0 3.0rem 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.3);
     }
 
     :global(img.active) {
-      border-color: #6396FF !important;
-      box-shadow: 0 0 3.0rem 0 rgba(0, 0, 0, 0.2);
+        border-color: #6396ff !important;
+        box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.2);
     }
 </style>
 
