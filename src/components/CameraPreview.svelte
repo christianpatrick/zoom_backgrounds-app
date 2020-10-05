@@ -46,8 +46,18 @@
                 cameraCanvas.height = cameraVideo.videoHeight
                 cameraCanvas.width = cameraVideo.videoWidth
 
-                let personSegmentation = await bodyPixNet.segmentPerson(cameraVideo)
-                drawGreenScreenEffect(cameraCanvas, cameraVideo, personSegmentation)
+                let greenScreenFrame
+
+                async function greenScreen() {
+                    let personSegmentation = await bodyPixNet.segmentPerson(cameraVideo)
+                    drawGreenScreenEffect(cameraCanvas, cameraVideo, personSegmentation)
+
+                    greenScreenFrame = requestAnimationFrame(greenScreen)
+                }
+
+                greenScreen()
+
+                return () => cancelAnimationFrame(greenScreenFrame)
             }
         }
     })
