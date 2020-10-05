@@ -4,6 +4,7 @@
 
 <style>
 	h1 {
+		margin-top: 1.5rem;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		overflow: hidden;

@@ -48,8 +48,8 @@
 
         I don't do anything with your data. The site simply runs your webcam
         feed  through a machine learning platform: TensorFlow to separate you
-        from your  background. If you're not a fan, simply disable your webcam
-        and browse the  site. You won't be able to preview backgrounds with your
-        webcam; but you can still download backgrounds :)
+        from your  background. If you'd rather not share your webcam, simply
+        disable your webcam. You won't be able to preview backgrounds with 
+        your webcam, but you can still download them :)
     </p>
 </div>

@@ -5,11 +5,11 @@
     import Hero from "./components/Hero.svelte"
     import Welcome from "./components/Welcome.svelte"
 
-    let searchValue, webcamLoaded
+    let searchValue, webcamLoaded, mediaUrl
 </script>
 
 <style>
-    main {
+    section {
         margin: 1rem auto;
         width: 840px;
     }
@@ -20,15 +20,16 @@
 </style>
 
 <header>
-    <SearchBar bind:searchValue />
-    <main>
+    <SearchBar bind:searchValue {webcamLoaded} />
+    <section>
         <Hero {searchValue} />
-        {#if webcamLoaded}
-            <MediaList {searchValue} />
-        {:else}
+        {#if !webcamLoaded}
             <Welcome />
         {/if}
-    </main>
+    </section>
+    {#if webcamLoaded}
+        <MediaList bind:mediaUrl {searchValue} />
+    {/if}
 </header>
 
-<CameraPreview bind:webcamLoaded />
+<CameraPreview bind:webcamLoaded {mediaUrl} />

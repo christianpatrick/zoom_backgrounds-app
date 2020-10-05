@@ -1,14 +1,15 @@
 <script>
-    import { onMount } from "svelte"
+    import { onMount, afterUpdate } from "svelte"
     import * as tf from "@tensorflow/tfjs-core"
     import "@tensorflow/tfjs-backend-webgl"
     import * as bodyPix from "@tensorflow-models/body-pix"
 
     export let webcamLoaded = false
+    export let mediaUrl
 
     let bodyPixNet
     let webcamPermission = false
-    let cameraVideo
+    let mainVideo
 
     onMount(async () => {
         let stream
@@ -27,18 +28,16 @@
 
             let bodyPixNet = await bodyPix.load()
 
-            let videoElm = cameraVideo
-            videoElm.srcObject = stream
-            // videoElm.onloadedmetadata = () => {
-            //   if (this.state.customBackground) {
-            //     // videoElm.width = videoElm.videoWidth
-            //     // videoElm.height = videoElm.videoHeight
+            mainVideo.srcObject = stream
+            mainVideo.play()
+        }
+    })
 
-            //     // canvas.height = videoElm.videoHeight
-            //     // canvas.width = videoElm.videoWidth
-            //   }
-            // }
-            videoElm.play()
+    afterUpdate(() => {
+        if (mediaUrl) {
+            mainVideo.src = mediaUrl
+            mainVideo.loop = true
+            mainVideo.play()
         }
     })
 </script>
@@ -46,16 +45,17 @@
 <style>
     video {
         width: 425px;
-        height: 300px;
-        background-color: #ffffff;
+        height: 280px;
+        background-color: #000000;
         position: fixed;
         bottom: 50px;
         left: 50px;
         border-radius: 1rem;
-        border: 0.5rem solid #ffffff;
+        border: 0.5rem solid #FFFFFF;
         box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.2);
         object-fit: cover;
     }
 </style>
 
-{#if webcamPermission}<video bind:this={cameraVideo} />{/if}
+{#if webcamPermission && !mediaUrl}<video muted bind:this={mainVideo} />{/if}
+{#if mediaUrl}<video muted bind:this={mainVideo} />{/if}
