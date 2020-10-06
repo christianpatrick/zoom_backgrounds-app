@@ -9,6 +9,7 @@
     let mediaList = []
     let selectedMedia
     let prevSearchValue = ""
+    let pageNumber = 1
 
     $: {
         getMedia()
@@ -25,14 +26,19 @@
                 headers: { Authorization: process.env.PEXELS_API_KEY },
             }
 
+            if (searchValue !== prevSearchValue) {
+                pageNumber = 1
+                mediaList = []
+            }
+
             await fetch(
                 `https://api.pexels.com/videos/search?query=${
                     searchValue ? searchValue : "background"
-                }&per_page=30&page=1`,
+                }&per_page=30&page=${pageNumber}`,
                 options
             )
                 .then((response) => response.json())
-                .then((data) => (mediaList = data.videos))
+                .then((data) => (mediaList = mediaList.concat(data.videos)))
         }
     }
 
@@ -65,6 +71,15 @@
         })
             .then((response) => response.blob())
             .then((blob) => saveAs(blob, `${mediaId}.mp4`))
+    }
+
+    window.onscroll = function () {
+        const d = document.documentElement
+
+        if (d.scrollTop + window.innerHeight > d.offsetHeight + 20) {
+            pageNumber++
+            getMedia(true)
+        }
     }
 </script>
 
