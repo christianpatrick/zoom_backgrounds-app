@@ -7,7 +7,6 @@ import replace from "@rollup/plugin-replace"
 import dotenv from "dotenv"
 
 const production = !process.env.ROLLUP_WATCH
-const envVars = dotenv.config()
 
 function serve() {
     let server
@@ -65,9 +64,7 @@ export default {
         commonjs(),
 
         replace({
-            process: JSON.stringify({
-                env: envVars.parsed,
-            }),
+            PEXELS_API_KEY: process.env.PEXELS_API_KEY
         }),
 
         // In dev mode, call `npm run start` once
