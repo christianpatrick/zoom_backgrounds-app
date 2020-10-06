@@ -622,14 +622,3 @@ pre tt:after {
     font-size: 100%;
   }
 }
-.media_list-item {
-  transition: 0.3s;
-}
-.media_list-item:hover {
-  box-shadow: 0 0 3.0rem 0 rgba(0, 0, 0, 0.2);
-}
-
-.media_list-item.active {
-  border-color: #6396FF !important;
-  box-shadow: 0 0 3.0rem 0 rgba(0, 0, 0, 0.2);
-}
