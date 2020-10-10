@@ -76,7 +76,7 @@
     window.onscroll = function () {
         const d = document.documentElement
 
-        if (d.scrollTop + window.innerHeight > d.offsetHeight) {
+        if (d.scrollTop + window.innerHeight > d.offsetHeight - 20) {
             pageNumber++
             getMedia(true)
         }
