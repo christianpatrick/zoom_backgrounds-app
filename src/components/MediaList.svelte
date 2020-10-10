@@ -23,7 +23,7 @@
     const getMedia = async (forceLoad = false) => {
         if (searchValue !== prevSearchValue || forceLoad) {
             const options = {
-                headers: { Authorization: 'PEXELS_API_KEY' },
+                headers: { Authorization: "PEXELS_API_KEY" },
             }
 
             if (searchValue !== prevSearchValue) {

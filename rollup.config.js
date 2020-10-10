@@ -64,7 +64,7 @@ export default {
         commonjs(),
 
         replace({
-            PEXELS_API_KEY: process.env.PEXELS_API_KEY
+            PEXELS_API_KEY: process.env.PEXELS_API_KEY,
         }),
 
         // In dev mode, call `npm run start` once
